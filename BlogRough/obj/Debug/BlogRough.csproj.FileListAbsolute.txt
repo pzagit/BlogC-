@@ -93,3 +93,5 @@ C:\Users\Preston\source\repos\BlogRough\BlogRough\obj\Debug\BlogRough.csproj.Cor
 C:\Users\Preston\source\repos\BlogRough\BlogRough\obj\Debug\BlogRough.csproj.CopyComplete
 C:\Users\Preston\source\repos\BlogRough\BlogRough\obj\Debug\BlogRough.dll
 C:\Users\Preston\source\repos\BlogRough\BlogRough\obj\Debug\BlogRough.pdb
+C:\Users\Preston\source\repos\BlogRough\BlogRough\obj\Debug\BlogRough.Migrations.inital.resources
+C:\Users\Preston\source\repos\BlogRough\BlogRough\obj\Debug\BlogRough.csproj.GenerateResource.cache

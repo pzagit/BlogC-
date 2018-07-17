@@ -1,46 +1,132 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Net;
 using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
+using BlogRough.Context;
 using BlogRough.Models;
+using Newtonsoft.Json.Linq;
 
 namespace BlogRough.Controllers
 {
     public class PostsController : Controller
     {
+        private BlogContext _db = new BlogContext();
 
-        public ActionResult View(int id)
+        // GET: Post
+        public ActionResult Index()
+        {
+
+            return View(_db.DbPost.ToList());
+        }
+
+        public ActionResult Create()
         {
             return View();
         }
-        // GET: Post
-        public ActionResult Index(int? index)
+
+        [HttpPost]
+        public ActionResult Create(Post post)
         {
-            if (!index.HasValue)
+            if (ModelState.IsValid)
             {
-                index = 1;
+                _db.DbPost.Add(post);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        public ActionResult Details(int? Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Post post = _db.DbPost.Find(Id);
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+            return View(post);
+        }
+
+        public ActionResult Edit(int? Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Post post = _db.DbPost.Find(Id);
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+            return View(post);
+        }
+
+        [HttpPost]
+        [ActionName("Edit")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditPost(int? Id, string body, string title, DateTime date)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            List<Post> listOfPosts = new List<Post>();
-            Post post = new Post
-            {
-                Title = "First post",
-                Body = "Hello, World!",
-                Date = DateTime.Now
-            };
-            Post post2 = new Post
-            {
-                Title = "Second post",
-                Body = "Hola!",
-                Date = DateTime.Now
-            };
-            listOfPosts.Add(post);
-            listOfPosts.Add(post2);
-            //var post = new Post() {Title = "First Post", Body = "Hello, World!"};
+            Post post = _db.DbPost.Find(Id);
 
-            return View(listOfPosts);
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                post.Title = title;
+                post.Body = body;
+                post.Date = date;
+
+                _db.DbPost.AddOrUpdate(post);
+                _db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(post);
+        }
+
+        public ActionResult Delete(int? Id)
+        {
+             if (Id == null)
+             {
+                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+             }
+
+            Post post = _db.DbPost.Find(Id);
+
+            if (post == null)
+            {
+                return new HttpNotFoundResult();
+            }
+
+            return View(post);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Post post = _db.DbPost.Find(id);
+            _db.DbPost.Remove(post);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

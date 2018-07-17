@@ -7,13 +7,16 @@ using System.Web;
 namespace BlogRough.Models
 {
     public class Post
-    {
-        [Required] public string Title { get; set; }
+    {   
+        [Key]
+        public int Id { get; set; }
 
-        [Required] public string Body { get; set; }
+        public string Title { get; set; }
+
+        public string Body { get; set; }
 
         public DateTime Date { get; set; }
 
-        public List<Post> ListOfPosts { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
     }
 }
