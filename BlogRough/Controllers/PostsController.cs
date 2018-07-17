@@ -124,8 +124,11 @@ namespace BlogRough.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Post post = _db.DbPost.Find(id);
-            _db.DbPost.Remove(post);
-            _db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _db.DbPost.Remove(post);
+                _db.SaveChanges();
+            }
             return RedirectToAction("Index");
         }
     }
