@@ -1,0 +1,63 @@
+﻿body {
+    width: 100%;
+    background: linear-gradient(rgba(20, 20, 20, 0.55), rgba(20, 20, 20, 0.55)), url("../Images/tech.jpg") no-repeat center center fixed;
+    background-color: #fffff0;
+    padding-left: 100px;
+}
+
+.color {
+    background-color: gray
+}
+
+.article {
+    border-radius: 10px;
+    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-right: 50px;
+    list-style: none;
+    width: 100%;
+    background-color: white;
+}
+
+.article > li {
+    background-color: white;
+    padding-left: 25px;
+    border-radius: 25px;
+    padding-top: 20px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.article > li .title {
+   /** background-color: lightblue; **/
+    padding-bottom: 50px;
+    font-weight:bolder;
+    font-size: 35px;
+    font-family:sans-serif
+ }
+
+.article > li .picture {
+        border-radius: 25px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 125px;
+    background-color: white;
+}
+ img {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+
+}
+
+.article > li .description {
+    padding-top: 10px;
+    /** background-color: lightcoral; **/
+    font-size: 15px; 
+    font-family: sans-serif;
+}
+
+.article > li .date {
+    /** background-color: lightgray; **/
+    font-weight: lighter;
+    color: dimgray;
+}
