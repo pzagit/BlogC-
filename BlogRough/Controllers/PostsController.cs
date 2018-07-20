@@ -25,6 +25,12 @@ namespace BlogRough.Controllers
             return View(_db.DbPost.ToList());
         }
 
+        public ActionResult IndexCopy()
+        {
+
+            return View(_db.DbPost.ToList());
+        }
+
         public ActionResult Create()
         {
             return View();

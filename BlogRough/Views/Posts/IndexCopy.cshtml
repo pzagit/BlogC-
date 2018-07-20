@@ -1,0 +1,25 @@
+﻿@model IEnumerable<BlogRough.Models.Post>
+
+@{
+    ViewBag.Title = "Posts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Posts</h2>
+@Html.ActionLink("Create new", "Create")
+
+@foreach (var item in Model)
+{
+    <ul class="article">
+        <span class="title">@item.Title</span>
+        <div class="picture"><img src="@Url.Content(item.ImageFile)" /></div>
+        <div class="description">
+            <span class="body">@item.Body</span>
+        </div>
+        <div class="date">
+            <span class="fulldate">@item.Date.ToString("MM/dd/yyyy")</span>
+            <span class="time">@item.Date.ToString("t")</span>
+        </div>
+    </ul>
+}
+

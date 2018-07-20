@@ -17,6 +17,8 @@ namespace BlogRough.Models
 
         public DateTime Date { get; set; }
 
+        public string ImageFile { get; set; }
+
         public virtual ICollection<Post> Posts { get; set; }
     }
 }
