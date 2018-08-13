@@ -5,21 +5,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="~/Content/style.css" rel="stylesheet" />
-<ul class="article">
-    @foreach (var item in Model)
-    {
-        <li class="well color">
-            <span class="title">@item.Title</span>
-            <div class="picture"><img src="@Url.Content(item.ImageFile)" /></div>
-            <div class="description">
-                <span class="body">@item.Body</span>
-            </div>
-            <div class="date">
-                <span class="time">@item.Date.ToString("t")</span> -
-                <span class="fulldate">@item.Date.ToString("dd MMM yyyy")</span>
-            </div>
-        </li>
-    }
-</ul>
-
-
+<div class="container-fluid">
+    <ul class="article col-lg-10 col-md-10 col-sm-10 col-xs-10">
+        @foreach (var item in Model)
+        {
+            <li class="well">
+                <span class="title">@item.Title</span>
+                <div class="picture"><img src="@Url.Content(item.ImageFile)" class="img-responsive"/></div>
+                <div class="description">
+                    <span class="body">@item.Body</span>
+                </div>
+                <div class="date">
+                    <span class="time">@item.Date.ToString("t")</span> -
+                    <span class="fulldate">@item.Date.ToString("dd MMM yyyy")</span>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
