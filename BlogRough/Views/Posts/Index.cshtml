@@ -4,44 +4,22 @@
     ViewBag.Title = "Posts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<head>
-    <link href = "~/Content/Site.css" rel = "stylesheet"/>
-</head>
-
-<h2>Posts</h2>
-@Html.ActionLink("Create new", "Create")
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Body)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-
-</table>
+<link href="~/Content/style.css" rel="stylesheet" />
+<div class="container">
+    <ul class="article">
+        @foreach (var item in Model)
+        {
+            <li class="well color">
+                <span class="title">@item.Title</span>
+                <div class="picture"><img src="@Url.Content(item.ImageFile)" /></div>
+                <div class="description">
+                    <span class="body">@item.Body</span>
+                </div>
+                <div class="date">
+                    <span class="time">@item.Date.ToString("t")</span> -
+                    <span class="fulldate">@item.Date.ToString("dd MMM yyyy")</span>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
