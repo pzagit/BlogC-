@@ -6,7 +6,11 @@
 }
 
 .color {
-    background-color: gray
+    background-color: white;
+}
+
+.rmlist {
+    list-style: none;
 }
 
 .article {
@@ -14,8 +18,6 @@
     padding-bottom: 100px;
     padding-top: 50px;
     padding-right: 50px;
-    list-style: none;
-    width: 100%;
     background-color: white;
 }
 
