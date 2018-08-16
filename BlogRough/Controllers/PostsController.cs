@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.Remoting.Messaging;
@@ -74,6 +75,26 @@ namespace BlogRough.Controllers
                 return HttpNotFound();
             }
             return View(post);
+        }
+
+        [HttpPost]
+        public ActionResult UploadFile(HttpPostedFileBase file)
+        {
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+                    string _FileName = Path.GetFileName(file.FileName);
+                    string _path = Path.Combine(Server.MapPath("~/Images/"), _FileName);
+                    file.SaveAs(_path);
+                }
+                ViewBag.Message = "File Uploaded Successfully!";
+            }
+            catch
+            {
+                ViewBag.Message = "File upload failed!!";
+            }
+            return RedirectToAction("Create");
         }
 
         [HttpPost]
