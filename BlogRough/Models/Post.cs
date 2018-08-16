@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -16,6 +17,9 @@ namespace BlogRough.Models
         public string Body { get; set; }
 
         public DateTime Date { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase file { get; set; }
 
         public string ImageFile { get; set; }
 
