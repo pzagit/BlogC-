@@ -1,0 +1,32 @@
+﻿body {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(26,26,26,0.3), rgba(26, 26, 26, 0.6)),url("../images/pier.jpg");
+}
+
+.sect {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.sect1 {
+    height: 100%;
+    background-image: url("../images/pier.jpg");
+}
+
+.subsect1 {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.bg {
+    background-color: red;
+}

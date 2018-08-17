@@ -1,16 +1,4 @@
-﻿body {
-    background: linear-gradient(rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.2)), url("../Images/pier.jpg") no-repeat center center fixed;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-.subsect1 {
-    display: table;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.sect {
+﻿.sect {
     height: 100%;
     width: 100%;
     background-size: cover;
@@ -20,5 +8,11 @@
 }
 
 .sect1 {
-    background-image: linear-gradient(rgba(26,26,26,0.7), rgba(26, 26, 26, 0.7)), url("../images/tech.jpg");
+    background-image: linear-gradient(rgba(26,26,26,0.7), rgba(26, 26, 26, 0.7)), url("../images/pier.jpg");
+}
+
+.subsect1 {
+    display: table;
+    width: 100%;
+    margin: 0 auto;
 }
